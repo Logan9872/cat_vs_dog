@@ -2,15 +2,11 @@ import numpy as np
 import cv2
 import os
 
-
 class SimplePreprocessor:
     def __init__(self, width, height, inter=cv2.INTER_AREA):
         self.width = width
         self.height = height
         self.inter = inter
-
-    def preprocess(self, image):
-        return cv2.resize(image, (self.width, self.height), interpolation=self.inter)
 
 
 class SimpleDatasetLoader:
@@ -23,7 +19,7 @@ class SimpleDatasetLoader:
     def load(self, imagePaths, verbose=-1):
         data = []
         labels = []
-        # print(imagePaths)
+        print(imagePaths)
         for (i, imagePath) in enumerate(imagePaths):
             image = cv2.imread(imagePath)
             label = imagePath.split(os.path.sep)[-2]

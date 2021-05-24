@@ -21,14 +21,15 @@ if __name__ == '__main__':
     (data, labels) = sdl.load(imagePaths, verbose=100)
     data = data.reshape((data.shape[0], 3072))
 
-    print("[INFO] features matrix:{:.1f}MB".format(data.nbytes / (1024 * 1000.0)))
+    print("[INFO] 特征矩阵:{:.1f}MB".format(data.nbytes / (1024 * 1000.0)))
 
     le = LabelEncoder()
     labels = le.fit_transform(labels)
 
-    (trainX, testX, trainY, testY) = train_test_split(data, labels, test_size=0.25, random_state=42)
+# 切分训练集和验证集
+    (trainX, testX, trainY, testY) = train_test_split(data, labels, test_size=0.2, random_state=3)
 
-    print("[INFO] evaluating K-NN classifier...")
+    print("[INFO] 计算KNN分类效果...")
 
     # model = KNeighborsClassifier(n_neighbors=args["neighbors"], n_jobs=args["jobs"])
     model = KNeighborsClassifier(n_neighbors=3)

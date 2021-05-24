@@ -14,10 +14,10 @@ class SimplePreprocessor:
 
 if __name__ == '__main__':
     s = SimplePreprocessor(32, 32)
-    img = cv2.imread('PetImages/Cat/9759.jpg')
-    # print(img)
+    img = cv2.imread('PetImages/Cat/124.jpg')
+    print(img)
     cv2.imshow('src', img)
     cv2.imshow("resize", s.preprocess(img))
-    # print(img.size)
+    print(img.size)
     cv2.waitKey(0)
-    # cv2.destroyallWindows()
+    cv2.destroyallWindows()
